@@ -1,0 +1,365 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Jeopardy HTML / Javascript</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="description" content="A literal Jeopardy about Drake, on a site called bingo.">
+<meta name="keywords" content="Drake, Bingo, Jeopardy, Famous, Drake Jeopardy,">
+<meta name="author" content="Cursed Dreams LLC">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
+<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+	</head>
+<body>
+<!--
+This file was generated at http://www.joshrosenbaum.org/jeopardy.html
+Copyright 2007 Josh Rosenbaum
+Usage free for non-commercial use.
+-->
+<style>
+        .dankmemelord {
+        background: green
+        }
+      
+/*The color of the bar with the dropdown on it.*/
+div {background-color: #2ad813;}
+div a {
+    text-decoration: none;
+    /* color for the text */
+    color: yellow;
+    font-size: 25px;
+    padding: 15px;
+    display:inline-block;
+    font-family: 'Leckerli One', cursive;
+}
+ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+ul li {display: inline-block;}
+ul li:hover {background: orange;}
+ul li:hover ul {display: block;}
+ul li ul {
+  position: absolute;
+  width: 200px;
+  display: none;
+}
+ul li ul li { 
+/* color on the inside of the dropdown */
+  background: Orange; 
+  display: block; 
+}
+ul li ul li a {display:block !important;} 
+/*hover the buttons inside the dropdown */
+ul li ul li:hover {background: purple;}
+</style>
+<style>
+	.Lemonada {
+font-family: 'Lemonada', cursive;
+}
+.Kaushan {		
+font-family: 'Kaushan Script', cursive;
+}
+.Playfair {
+font-family: 'Playfair Display SC', serif;
+}
+.Jura {
+font-family: 'Jura', sans-serif;
+}
+.Leckerli {
+font-family: 'Leckerli One', cursive;
+}
+.Swanky {
+font-family: 'Fontdiner Swanky', cursive;
+}
+.Cabin {
+font-family: 'Cabin Sketch', cursive;
+}
+.Schoolbell {
+font-family: 'Schoolbell', cursive;
+}
+.Ewert {
+font-family: 'Ewert', cursive;
+}
+.Vast {
+font-family: 'Vast Shadow', cursive;
+}
+.Frijole {
+font-family: 'Frijole', cursive;
+}
+.Coiny {
+font-family: 'Coiny', cursive;
+}
+.Rye {
+font-family: 'Rye', cursive;
+}
+.Mystery {
+font-family: 'Mystery Quest', cursive;
+}
+.Bungee {
+font-family: 'Bungee Shade', cursive;
+}
+
+</style>
+<style type="text/css">
+HTML,BODY{
+  margin:0;
+  padding:0;
+  height:100%;
+  border:none;
+}
+BODY, TABLE{
+  font-family: 'Bungee Shade', cursive;
+  color: yellow;
+  background: #2ad813;
+}
+.hiddenDiv{
+  display:none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-weight:bold;
+}
+.showDiv{
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: purple;
+  cursor:pointer;
+  font-weight:bold;
+  font-size: 26px;
+}
+.headerColumn{
+  font-weight:bold;
+  font-size: 18pt;
+  color: #ff5900;
+  text-align:center;
+  border: 1px outset;
+}
+.questionColumn{
+  cursor:pointer;
+  border: 1px outset;
+  text-align:center;
+  font-weight:bold;
+  font-size: 30pt;
+}
+.questionColumnHighlight{
+  cursor:pointer;
+  border: 1px outset;
+  text-align: center;
+  background: red;
+  font-weight:bold;
+  font-size: 30pt;
+}
+
+.questionColumnComplete{
+  border: 1px outset;
+  text-align:center;
+}
+</style>
+
+<script type="text/javascript">
+function _set_width(element, width, height){
+  if(element.nodeName.match(/^(table|tr|tbody|thead)$/i)){
+    var list = element.childNodes;
+    var size = list.length;
+    for(var i=0; i < size; i++){
+      list[i].style.height = height + 'px';
+      list[i].style.width = width + 'px';
+      _set_width(list[i], width, height)
+    }
+  }
+  return;
+}
+
+function showquestion(divid){
+  var div = document.getElementById(divid);
+
+  var points_field = document.getElementById(divid + '_valcol');
+  if(points_field.innerHTML == '&nbsp;'){
+    return;
+  }
+  
+
+  div.className = 'showDiv';
+
+  var height = document.body.offsetHeight;
+  var width = document.body.offsetWidth;
+
+  div.style.height = height + 'px';
+  div.style.width = width + 'px';
+
+  _set_width(div, width, height);
+  return true;
+}
+
+function hidequestion(divid){
+  var div = document.getElementById(divid);
+  div.className = 'hiddenDiv';
+
+  var points_field = document.getElementById(divid + '_valcol');
+  points_field.innerHTML = '&nbsp;';
+  points_field.className = 'questionColumnComplete';
+
+  return true;
+}
+
+function highlightCol(mytd){
+  if(mytd.innerHTML == '&nbsp;'){
+    return;
+  }
+
+  mytd.className = 'questionColumnHighlight';
+  return true;
+}
+function deHighlightCol(mytd){
+  if(mytd.innerHTML == '&nbsp;'){
+    return;
+  }
+
+  mytd.className = 'questionColumn';
+  return true;
+}
+</script>
+	<iframe width="0" height="0" src="https://www.youtube.com/embed/L97A3VrEkDg?autoplay=1" frameborder="0" allowfullscreen></iframe>
+<center>
+		<div>
+				<!--<a href="/start">Start</a>
+				<a href="/about">About</a>
+				<a href="/privacypolicy">Privacy Policy</a>-->
+                				<ul>
+					<li>
+						<a href="#">Games</a>
+							<ul>
+								<li><a href="/index">Drake Jeopardy</a></li>
+							</ul>
+					</li>
+				</ul>
+                                				<ul>
+					<li>
+						<a href="#">Writings</a>
+							<ul>
+								<li><a href="/informative">Drake (INFORMATIONAL)</a></li>
+							</ul>
+					</li>
+				</ul>
+			</div>
+            </center>
+<table id="quiztable" class="quizTable" bgcolor="#0000ff" border="1" cellpadding="0" cellspacing="0" width="100%" height="100%">
+<tr id="headers">
+<td class="headerColumn" height="20.00%" width="20%">Random</td>
+<td class="headerColumn" height="20.00%" width="20%">Songs</td>
+<td class="headerColumn" height="20.00%" width="20%">Achievements</td>
+<td class="headerColumn" height="20.00%" width="20%">Life</td>
+<td class="headerColumn" height="20.00%" width="20%">N/A</td>
+</tr>
+
+<tr>
+<td onclick="showquestion('0_0');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="0_0_valcol">100</td>
+<td onclick="showquestion('0_1');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="0_1_valcol">100</td>
+<td onclick="showquestion('0_2');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="0_2_valcol">100</td>
+<td onclick="showquestion('0_3');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="0_3_valcol">100</td>
+<td onclick="showquestion('0_4');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="0_4_valcol">100</td>
+</tr>
+<tr>
+<td onclick="showquestion('1_0');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="1_0_valcol">200</td>
+<td onclick="showquestion('1_1');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="1_1_valcol">200</td>
+<td onclick="showquestion('1_2');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="1_2_valcol">200</td>
+<td onclick="showquestion('1_3');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="1_3_valcol">200</td>
+<td onclick="showquestion('1_4');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="1_4_valcol">200</td>
+</tr>
+<tr>
+<td onclick="showquestion('2_0');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="2_0_valcol">300</td>
+<td onclick="showquestion('2_1');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="2_1_valcol">300</td>
+<td onclick="showquestion('2_2');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="2_2_valcol">300</td>
+<td onclick="showquestion('2_3');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="2_3_valcol">300</td>
+<td onclick="showquestion('2_4');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="2_4_valcol">300</td>
+</tr>
+<tr>
+<td onclick="showquestion('3_0');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="3_0_valcol">400</td>
+<td onclick="showquestion('3_1');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="3_1_valcol">400</td>
+<td onclick="showquestion('3_2');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="3_2_valcol">400</td>
+<td onclick="showquestion('3_3');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="3_3_valcol">400</td>
+<td onclick="showquestion('3_4');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="3_4_valcol">400</td>
+</tr>
+</table>
+<table id="0_0" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Is Drake Lil Wayne?
+(a)Yes
+(b)No</td></tr></table>
+<table id="0_1" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Did Drake write &quot;Trust Issues&quot; in 2015?
+(a)Yes
+(b)No</td></tr></table>
+<table id="0_2" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Drake&#39;s video &quot;Started from the Bottom&quot; won how many awards?
+(a) 22
+(b) 7
+(c) 25
+(d) None</td></tr></table>
+<table id="0_3" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Is Drake Canadian?
+(a)Yes
+(b)No</td></tr></table>
+<table id="0_4" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">N/A</td></tr></table>
+<table id="1_0" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Was Drake an actor?
+(a)Yes
+(b)No</td></tr></table>
+<table id="1_1" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Is &quot;7 God&quot; one of Drakes songs?
+(a)Yes
+(b)No</td></tr></table>
+<table id="1_2" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">How many times did Drake win the Best Male Hip-Hop Artist?
+(a) 4
+(b) 8
+(c) 10
+(d) 12</td></tr></table>
+<table id="1_3" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Did Drake start his fame as an actor on a teen drama?
+(a)Yes
+(b)No</td></tr></table>
+<table id="1_4" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">N/A</td></tr></table>
+<table id="2_0" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Is Drake&#39;s real name Aubrey Graham?
+(a)Yes
+(b)No</td></tr></table>
+<table id="2_1" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Did Drake sing the song &quot;Mabins Room&quot;
+(a)Yes
+(b)No</td></tr></table>
+<table id="2_2" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Did Drake win Coca-Cola Viewer&#39;s Choice in 2014?
+(a)Yes
+(b)No</td></tr></table>
+<table id="2_3" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Did Drake attend Mountain Hill Collegiate Institute?
+(a)Yes
+(b)No</td></tr></table>
+<table id="2_4" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">N/A</td></tr></table>
+<table id="3_0" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Did Drake win Best Group in 2015?
+(a)Yes
+(b)No</td></tr></table>
+<table id="3_1" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Did Drake ever make a song called &quot;Pop Styles&quot;
+(a)Yes
+(b)No</td></tr></table>
+<table id="3_2" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Did Drake nominate himself for awards 54 times?
+(a)Yes
+(b)No</td></tr></table>
+<table id="3_3" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Did Drake ever graduate?
+(a)Yes
+(b)No</td></tr></table>
+<table id="3_4" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">N/A</td></tr></table>
+        <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Coiny|Ewert|Fontdiner+Swanky|Frijole|Jura|Kaushan+Script|Leckerli+One|Lemonada|Mystery+Quest|Playfair+Display+SC|Rye|Schoolbell|Vast+Shadow" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+
+	</body>
+</html>
