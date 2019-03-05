@@ -39,7 +39,7 @@ Usage free for non-commercial use.
         }
       
 /*The color of the bar with the dropdown on it.*/
-div {background-color: #2ad813;}
+div {background-color: #400caf;}
 div a {
     text-decoration: none;
     /* color for the text */
@@ -117,7 +117,6 @@ font-family: 'Mystery Quest', cursive;
 .Bungee {
 font-family: 'Bungee Shade', cursive;
 }
-
 </style>
 <style type="text/css">
 HTML,BODY{
@@ -129,7 +128,7 @@ HTML,BODY{
 BODY, TABLE{
   font-family: 'Bungee Shade', cursive;
   color: yellow;
-  background: #2ad813;
+  background: #400caf;
 }
 .hiddenDiv{
   display:none;
@@ -170,7 +169,6 @@ BODY, TABLE{
   font-weight:bold;
   font-size: 30pt;
 }
-
 .questionColumnComplete{
   border: 1px outset;
   text-align:center;
@@ -190,44 +188,33 @@ function _set_width(element, width, height){
   }
   return;
 }
-
 function showquestion(divid){
   var div = document.getElementById(divid);
-
   var points_field = document.getElementById(divid + '_valcol');
   if(points_field.innerHTML == '&nbsp;'){
     return;
   }
   
-
   div.className = 'showDiv';
-
   var height = document.body.offsetHeight;
   var width = document.body.offsetWidth;
-
   div.style.height = height + 'px';
   div.style.width = width + 'px';
-
   _set_width(div, width, height);
   return true;
 }
-
 function hidequestion(divid){
   var div = document.getElementById(divid);
   div.className = 'hiddenDiv';
-
   var points_field = document.getElementById(divid + '_valcol');
   points_field.innerHTML = '&nbsp;';
   points_field.className = 'questionColumnComplete';
-
   return true;
 }
-
 function highlightCol(mytd){
   if(mytd.innerHTML == '&nbsp;'){
     return;
   }
-
   mytd.className = 'questionColumnHighlight';
   return true;
 }
@@ -235,7 +222,6 @@ function deHighlightCol(mytd){
   if(mytd.innerHTML == '&nbsp;'){
     return;
   }
-
   mytd.className = 'questionColumn';
   return true;
 }
@@ -361,5 +347,4 @@ function deHighlightCol(mytd){
         <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Coiny|Ewert|Fontdiner+Swanky|Frijole|Jura|Kaushan+Script|Leckerli+One|Lemonada|Mystery+Quest|Playfair+Display+SC|Rye|Schoolbell|Vast+Shadow" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 
-	</body>
-</html>
+</body>
