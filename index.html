@@ -37,7 +37,7 @@ Usage free for non-commercial use.
         .dankmemelord {
         background: green
         }
-      
+
 /*The color of the bar with the dropdown on it.*/
 div {background-color: #400caf;}
 div a {
@@ -62,12 +62,12 @@ ul li ul {
   width: 200px;
   display: none;
 }
-ul li ul li { 
+ul li ul li {
 /* color on the inside of the dropdown */
-  background: Orange; 
-  display: block; 
+  background: Orange;
+  display: block;
 }
-ul li ul li a {display:block !important;} 
+ul li ul li a {display:block !important;}
 /*hover the buttons inside the dropdown */
 ul li ul li:hover {background: purple;}
 </style>
@@ -75,7 +75,7 @@ ul li ul li:hover {background: purple;}
 	.Lemonada {
 font-family: 'Lemonada', cursive;
 }
-.Kaushan {		
+.Kaushan {
 font-family: 'Kaushan Script', cursive;
 }
 .Playfair {
@@ -194,7 +194,7 @@ function showquestion(divid){
   if(points_field.innerHTML == '&nbsp;'){
     return;
   }
-  
+
   div.className = 'showDiv';
   var height = document.body.offsetHeight;
   var width = document.body.offsetWidth;
@@ -253,9 +253,9 @@ function deHighlightCol(mytd){
 <table id="quiztable" class="quizTable" bgcolor="#0000ff" border="1" cellpadding="0" cellspacing="0" width="100%" height="100%">
 <tr id="headers">
 <td class="headerColumn" height="20.00%" width="20%">Random</td>
-<td class="headerColumn" height="20.00%" width="20%">Songs</td>
-<td class="headerColumn" height="20.00%" width="20%">Achievements</td>
-<td class="headerColumn" height="20.00%" width="20%">Life</td>
+<td class="headerColumn" height="20.00%" width="20%">A Psalm of Life</td>
+<td class="headerColumn" height="20.00%" width="20%">Poet's Life</td>
+<td class="headerColumn" height="20.00%" width="20%"></td>
 <td class="headerColumn" height="20.00%" width="20%">N/A</td>
 </tr>
 
@@ -278,7 +278,6 @@ function deHighlightCol(mytd){
 <td onclick="showquestion('2_1');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="2_1_valcol">300</td>
 <td onclick="showquestion('2_2');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="2_2_valcol">300</td>
 <td onclick="showquestion('2_3');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="2_3_valcol">300</td>
-<td onclick="showquestion('2_4');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="2_4_valcol">300</td>
 </tr>
 <tr>
 <td onclick="showquestion('3_0');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="3_0_valcol">400</td>
@@ -288,9 +287,10 @@ function deHighlightCol(mytd){
 <td onclick="showquestion('3_4');" height="20.00%" width="20%" onMouseOver="highlightCol(this);" onMouseOut="deHighlightCol(this);" class="questionColumn" id="3_4_valcol">400</td>
 </tr>
 </table>
-<table id="0_0" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Is Drake Lil Wayne?
-(a)Yes
-(b)No</td></tr></table>
+<table id="0_0" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Henry Wadsworth Longfellow was a member of which poetry group?
+(A) Earthside Poets
+(B) Fireside Poets
+(C) Windside Poets</td></tr></table>
 <table id="0_1" cellpadding="0" cellspacing="0" width="100%" class="hiddenDiv" onclick="hidequestion(this.id);" border="0"><tr><td valign="middle" align="center">Did Drake write &quot;Trust Issues&quot; in 2015?
 (a)Yes
 (b)No</td></tr></table>
@@ -348,3 +348,4 @@ function deHighlightCol(mytd){
 <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 
 </body>
+</html>
